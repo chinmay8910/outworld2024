@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(21, 0, 107);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        header {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #fff;
+            width: calc(100% - 20px);
+            margin: 2px;
+            height: 100px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        header img {
+            height: 100px; /* Adjust the height of the logo */
+            width: auto;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .nav-buttons a,
+        .nav-buttons .logout-button {
+            background-color: rgb(21, 0, 107);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .nav-buttons a:hover,
+        .nav-buttons .logout-button:hover {
+            background-color: #153889;
+        }
+    
+        .container {
+            margin-top: 600px;
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        input[type="Reference_No"],
+        input[type="Contact_No"],
+        input[type="Sent_to"],
+        input[type="name"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgb(21, 0, 107);
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: medium;
+        }
+        input[type="Subject"] {
+            width: 100%;
+            padding: 30px;
+            margin-bottom: 15px;
+            border: 1px solid #696060;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: rgb(21, 0, 107);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #153889;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+       
+        button {
+            padding: 10px 20px;
+            background-color: rgb(21, 0, 107);
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #153889;
+        }
+
+       
+
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+            header img {
+                height: 100px; /* Adjust the height of the logo */
+            }
+            .nav-buttons {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+            .nav-buttons a,
+            .nav-buttons .logout-button {
+                flex: 1;
+                margin: 5px;
+            }
+            header h2{
+                color: rgb(21, 0, 107);
+                margin-left: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px 20px;
+            }
+            input[type="Subject"] {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img name="logo" type="logo" id="logo" src="logo.jpg"> 
+        <h2>Outward Register</h2>
+        <div class="nav-buttons">
+            <a href="dashboard.php">Dashboard</a>
+            <a href="register.html">Register</a>
+            <button class="logout-button" onclick="location.href='login.html'">Logout</button>
+        </div>
+    </header>
+    <div class="container">
+        
+        <form action="register.php" method="post">
+            <div class="form-group">
+                <label for="Reference_No">Reference_No</label>
+                <input type="Reference_No" id="Reference_No" name="Reference_No" required>
+                <button type="button" onclick="fetchPoliceInfo()">Fetch Info</button>
+            </div>
+           
+           
+            <div class="form-group">
+                <label for="OutwardBook">Outward Book:</label>
+                <select id="OutwardBook" name="OutwardBook" required>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Police_Station">Police Station</label>
+                <select id="Police_Station" name="Police_Station" required>
+                    <option value="Cyber Police Station">Cyber Police Station </option>
+                    <option value="Kashimira Police Station">Kashimira Police Station </option>
+                    <option value="Bhayndar Police Station">Bhayndar Police Station</option>
+                    <option value="Navghar Police Station">Navghar Police Station</option>
+                    <option value="Vasai Police Station">Vasai Police Station</option>
+                    <option value="Tulinj Police Station">Tulinj Police Station</option>
+                    <option value="Virar Police Station">Virar Police Station</option>
+                    <option value="Nallasopar Police Station">Nallasopar Police Station</option>
+                    <option value="Mira Road Police Station">Mira Road Police Station</option>
+                    <option value="Uttan Sagari Police Station">Uttan Sagari Police Station</option>
+                    <option value="Nayanagar Police Station">Nayanagar Police Station</option>
+                    <option value="manikpur Police Station">manikpur Police Station</option>
+                    <option value="Valiv Police Station">Valiv Police Station</option>
+                    <option value="pelhar Police Station">pelhar Police Station</option>
+                    <option value="Arnala Police Station">Arnala Police Station</option>
+                    <option value="Kashigaon Police Station">Kashigaon Police Station</option>
+                    <option value="Naigaon Police Station">Naigaon Police Station</option>
+                    <option value="Achole Police Station">Achole Police Station</option>
+                    <option value="Mandavi Police Station">Mandavi Police Station</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="role_name">Shera:</label>
+                <select id="role_name" name="role_name" required>
+                    <option value="Police Inspector">Police Inspector</option>
+                    <option value="Assistant Police Inspector">Assistant Police Inspector</option>
+                    <option value="Police Sub-Inspector">Police Sub-Inspector</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="Name" id="Name" name="Name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Contact_No">Phone Number</label>
+                <input type="Contact_No" id="Contact_No" name="Contact_No" required>
+            </div>
+           
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br><br>
+            <div class="form-group">
+                <label for="Sent_to">Sent to</label>
+                <input type="Sent_to" id="Sent_to" name="Sent_to" required>
+            </div>
+            <div class="form-group">
+                <label for="Subject">Subject</label>
+                <input type="Subject" id="Subject" name="Subject" required>
+            </div>
+            
+            <input type="submit" value="Register">
+        </form>
+
+        <script>
+            async function fetchPoliceInfo() {
+                const Reference_No = document.getElementById('Reference_No').value;
+                const OutwardBook = document.getElementById('OutwardBook').value;
+                
+                const response = await fetch('get_info.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ action: 'fetch', Reference_No: Reference_No })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        document.getElementById('Police_Station').value = data.Police_Station;
+                        document.getElementById('Contact_No').value = data.Contact_No;
+                        document.getElementById('role_name').value = data.role_name;
+                        document.getElementById('OutwardBook').value = data.OutwardBook;
+                    }
+                } else {
+                    alert('Failed to fetch info');
+                }
+            }
+    
+        </script>
+       
+    
+    </div>
+</body>
+</html>

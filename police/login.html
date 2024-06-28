@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('./bgimage.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Adjust width as needed */
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333; /* Darken text color */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Darken label text color */
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px); /* Adjust for padding and border */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .forgot-password a {
+            text-decoration: none;
+            color: #333; /* Match link color with label color */
+            font-size: 14px;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        header {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgb(255, 255, 255); /* Semi-transparent white background */
+            width: 99%;
+            height: 150px;
+            border-radius: 15px;
+            display: flex;
+            
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            height: 150px; /* Adjust the height of the logo */
+            width: auto;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img id="logo" name="logo" src="logo.jpg">
+    </header>
+    <div class="container">
+        <h2>User Login</h2>
+        <form action="login.php" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <input type="submit" value="Login">
+            <div class="forgot-password">
+                <a href="forgetpassword.html">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
